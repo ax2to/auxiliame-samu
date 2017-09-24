@@ -25,5 +25,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'dob' => rand(1970, 2010) . '-' . rand(1, 12) . '-' . rand(1, 28),
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'lat' => $faker->latitude,
+        'lng' => $faker->longitude
     ];
 });
