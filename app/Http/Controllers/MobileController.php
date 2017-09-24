@@ -24,6 +24,11 @@ class MobileController extends Controller
         return redirect()->route('mobile.index');
     }
 
+    public function getWizard()
+    {
+        return view('mobile.wizard');
+    }
+
     public function getWizard1()
     {
         return view('mobile.wizard1');
@@ -42,5 +47,15 @@ class MobileController extends Controller
     public function index()
     {
         return view('mobile.index');
+    }
+
+    public function getEmergency()
+    {
+        return view('mobile.emergency');
+    }
+
+    public function getProfiles()
+    {
+        return view('mobile.profiles');
     }
 }
