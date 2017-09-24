@@ -22,14 +22,16 @@ Route::get('/home', function () {
 
 Auth::routes();
 
-// Issues
-Route::resource('/issues', 'IssueController');
+Route::group(['middleware' => 'auth'], function () {
+    // Issues
+    Route::resource('/issues', 'IssueController');
 
-// Users
-Route::resource('/users', 'UserController');
+    // Users
+    Route::resource('/users', 'UserController');
 
-// Dispatch
-Route::get('/dispatch', 'DispatchController@index');
+    // Dispatch
+    Route::get('/dispatch', 'DispatchController@index');
+});
 
 // mobile
 Route::get('/m/', 'MobileController@index')->name('mobile.index');

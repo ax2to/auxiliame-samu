@@ -38,7 +38,11 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->dni }}</td>
-                                    <td>{{ $user->dob->age }}</td>
+                                    @if(is_object($user->dob))
+                                        <td>{{ $user->dob->age }}</td>
+                                    @else
+                                        <td></td>
+                                    @endif
                                     <td>{{ $user->phone }}</td>
                                 </tr>
                             @empty

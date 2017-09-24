@@ -15,10 +15,13 @@ class IssuesCreateTable extends Migration
     {
         Schema::create('issues', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('dni')->nullable();
             $table->text('description');
-            $table->string('status');
+            $table->string('status')->default('new');
             $table->text('search');
+            $table->string('address')->nullable();
+            $table->float('lat', 10, 7)->nullable();
+            $table->float('lng', 10, 7)->nullable();
             $table->timestamps();
         });
         DB::statement('ALTER TABLE issues ADD FULLTEXT search(search)');
